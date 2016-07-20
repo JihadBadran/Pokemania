@@ -22,7 +22,7 @@ class detailsVC: UIViewController {
 
         
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         self.nameLabel.text = pokemon.name.uppercased()
         self.idLabel.text = "ID:\(pokemon.poID)"
         self.mainImage.image = UIImage(named: "\(pokemon.poID)")
