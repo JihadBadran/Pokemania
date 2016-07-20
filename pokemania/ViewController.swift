@@ -26,6 +26,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         initAudio()
     }
     
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         
@@ -63,6 +69,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
+    
     @IBAction func pauseBtnClicked(_ sender: UIButton) {
         
         if musicPlayer.isPlaying{
@@ -95,6 +102,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var pokemon:Pokemon
+        if inSearchMode{
+            pokemon = DataService.instance.filteredArray[indexPath.row]
+        }else{
+            pokemon = DataService.instance.data[indexPath.row]
+        }
+        performSegue(withIdentifier: "goToDetails", sender: pokemon)
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -134,9 +149,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return CGSize(width: 90, height: 90)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+   
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let view = segue.destinationViewController as? detailsVC{
+            if let pokemon = sender as? Pokemon{
+                view.pokemon = pokemon
+            }
+        }
     }
 
 
