@@ -8,10 +8,13 @@
 
 import UIKit
 import AVFoundation
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     @IBOutlet weak var collectionView:UICollectionView!
-    
+    @IBOutlet weak var searchBar:UISearchBar!
     var musicPlayer: AVAudioPlayer!
+    
+    var inSearchMode = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,16 +22,40 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionView.dataSource = self
         
         parseCSV()
-        
+        searchBar.delegate = self
         initAudio()
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
+        if searchBar.text == nil || searchBar.text == ""{
+            inSearchMode = false
+            collectionView.reloadData()
+        }else{
+            inSearchMode = true
+            DataService.instance.filteredArray = DataService.instance.data.filter({ (pok:Pokemon) -> Bool in
+                if pok.name.lowercased().contains(searchText.lowercased()){
+                    
+                    return true
+                }else{
+                    return false
+                }
+            })
+            collectionView.reloadData()
+        }
+        
+    }
+    
+    
     func initAudio(){
         let file = Bundle.main.pathForResource("sound", ofType: "mp3")
         do{
             musicPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: file!))
             musicPlayer.prepareToPlay()
+            musicPlayer.numberOfLoops = -1
             musicPlayer.play()
-        
+            
         }catch{
             let err = NSError()
             print(err.localizedFailureReason)
@@ -71,7 +98,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return DataService.instance.data.count
+        if inSearchMode{
+            return DataService.instance.filteredArray.count
+        }else{
+            return DataService.instance.data.count
+        }
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -80,9 +111,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // configuring the cell and put it in the collection view
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokcell", for: indexPath) as? pokemonCellVC{
-            
-            let pokemon = DataService.instance.data[indexPath.row]
-            cell.configureCell(pokemon: pokemon)
+            var pokemon:Pokemon
+            if inSearchMode{
+                pokemon = DataService.instance.filteredArray[indexPath.row]
+                cell.configureCell(pokemon: pokemon)
+            }else{
+                pokemon = DataService.instance.data[indexPath.row]
+                cell.configureCell(pokemon: pokemon)
+            }
             return cell
         }else{
             let cell = UICollectionViewCell()

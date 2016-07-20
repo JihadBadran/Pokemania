@@ -11,7 +11,7 @@ class DataService {
     static let instance = DataService()
     
     var data:[Pokemon] = [Pokemon]()
-    
+    var filteredArray = [Pokemon]()
     func insert(pokemon:Pokemon) -> Void{
         self.data.append(pokemon)
     }
