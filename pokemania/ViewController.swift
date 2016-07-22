@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     @IBOutlet weak var collectionView:UICollectionView!
     @IBOutlet weak var searchBar:UISearchBar!
@@ -24,12 +25,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         parseCSV()
         searchBar.delegate = self
         initAudio()
+        
+        
+        
+        
     }
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
     }
+    
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

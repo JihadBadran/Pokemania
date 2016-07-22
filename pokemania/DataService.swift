@@ -12,6 +12,11 @@ class DataService {
     
     var data:[Pokemon] = [Pokemon]()
     var filteredArray = [Pokemon]()
+    
+    
+    
+    
+    
     func insert(pokemon:Pokemon) -> Void{
         self.data.append(pokemon)
     }
@@ -19,5 +24,8 @@ class DataService {
     func delete(position:Int){
         self.data.remove(at: position)
     }
+    
+    
+    
     
 }
