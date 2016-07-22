@@ -12,7 +12,6 @@ class detailsVC: UIViewController {
     
     
     @IBOutlet weak var nameLabel:UILabel!
-    @IBOutlet weak var idLabel:UILabel!
     @IBOutlet weak var mainImage:UIImageView!
     @IBOutlet weak var attackLabel:UILabel!
     @IBOutlet weak var defenseLabel:UILabel!
@@ -31,13 +30,11 @@ class detailsVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.nameLabel.text = "\(pokemon.name.uppercased())"
-        self.idLabel.text = "ID:\(pokemon.poID)"
         self.mainImage.image = UIImage(named: "\(pokemon.poID)")
         
         
         self.pokemon.downloadPokemonDetails {
             print("did we get here?")
-            
             DispatchQueue.main.async(execute: {
                 self.updateUI()
             })
@@ -46,11 +43,11 @@ class detailsVC: UIViewController {
         
     }
     func updateUI(){
-        attackLabel.text = "Attack:\(pokemon.attack)"
-        defenseLabel.text = "Defense:\(self.pokemon.defense)"
-        typeLabel.text = "Type:\(self.pokemon.type)"
-        heightLabel.text = "Height:\(self.pokemon.height)"
-        weightLabel.text = "Weight:\(self.pokemon.weight)"
+        attackLabel.text = "\(pokemon.attack)"
+        defenseLabel.text = "\(self.pokemon.defense)"
+        typeLabel.text = "\(self.pokemon.type.capitalized)"
+        heightLabel.text = "\(self.pokemon.height)"
+        weightLabel.text = "\(self.pokemon.weight)"
         
         
     }

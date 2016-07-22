@@ -40,7 +40,6 @@
 		1B7D55BB1D3EBF88002F2DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B7D55BD1D3EBF88002F2DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BAF24E51D3FB44B003E970E /* detailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsVC.swift; sourceTree = "<group>"; };
-		1BC170651D41ABBC002110F5 /* pokemania.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pokemania.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +126,6 @@
 		1B7D55B01D3EBF85002F2DF4 /* pokemania */ = {
 			isa = PBXGroup;
 			children = (
-				1BC170651D41ABBC002110F5 /* pokemania.entitlements */,
 				1B0B9E071D3EE58100022227 /* Util */,
 				1B0B9E061D3EE51500022227 /* Resources */,
 				1B0B9E031D3EDE4D00022227 /* Service */,
