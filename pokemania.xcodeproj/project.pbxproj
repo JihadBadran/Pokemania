@@ -32,6 +32,7 @@
 		1B0B9E121D3EF43400022227 /* Pokemon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pokemon.ttf; sourceTree = "<group>"; };
 		1B0B9E131D3EF52500022227 /* sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sound.mp3; sourceTree = "<group>"; };
 		1B4D88971D41191F006D5C0E /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		1B51D9921D4A4F900002BEED /* pokemania.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = pokemania.entitlements; sourceTree = "<group>"; };
 		1B7D55AE1D3EBF85002F2DF4 /* pokemania.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokemania.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B7D55B11D3EBF87002F2DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B7D55B31D3EBF87002F2DF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		1B7D55B01D3EBF85002F2DF4 /* pokemania */ = {
 			isa = PBXGroup;
 			children = (
+				1B51D9921D4A4F900002BEED /* pokemania.entitlements */,
 				1B0B9E071D3EE58100022227 /* Util */,
 				1B0B9E061D3EE51500022227 /* Resources */,
 				1B0B9E031D3EDE4D00022227 /* Service */,
@@ -171,10 +173,13 @@
 				TargetAttributes = {
 					1B7D55AD1D3EBF85002F2DF4 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 8J538Y62SX;
-						DevelopmentTeamName = "Jihad Badran (Personal Team)";
+						DevelopmentTeam = 35FLCTJNHZ;
+						DevelopmentTeamName = "AHMAD OWEDAH";
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.Siri = {
 								enabled = 0;
 							};
@@ -348,10 +353,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = pokemania/pokemania.entitlements;
 				INFOPLIST_FILE = pokemania/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ps.softpixel.pokemania;
+				PRODUCT_BUNDLE_IDENTIFIER = ps.tasfyeh.pokemania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -362,10 +368,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = pokemania/pokemania.entitlements;
 				INFOPLIST_FILE = pokemania/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ps.softpixel.pokemania;
+				PRODUCT_BUNDLE_IDENTIFIER = ps.tasfyeh.pokemania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

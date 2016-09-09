@@ -106,7 +106,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
-    
+    // clicked on collection view cell event
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         var pokemon:Pokemon
@@ -115,9 +115,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }else{
             pokemon = DataService.instance.data[indexPath.row]
         }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, options: UIViewAnimationOptions.autoreverse, animations: {
+                collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            }, completion: {(true) -> () in
+                collectionView.cellForItem(at: indexPath)?.backgroundColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
+        })
+        
         performSegue(withIdentifier: "goToDetails", sender: pokemon)
         
     }
+    
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if inSearchMode{
             return DataService.instance.filteredArray.count

@@ -40,6 +40,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func regesterForPushingNotifications(application:UIApplication){
+        let notificationSettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+    
+    
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]? = [:]) -> Bool {
+        regesterForPushingNotifications(application: application)
+        
+        return true
+    }
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        if notificationSettings.types != .none{
+            application.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        
+    }
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        
+    }
 
 
 }
