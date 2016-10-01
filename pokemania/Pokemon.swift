@@ -71,10 +71,11 @@ class Pokemon{
     
     
     // function that downloads the pokemon remaining data from the pokeapi.co API
-    func downloadPokemonDetails(oncomplete:()->()){
+    func downloadPokemonDetails(oncomplete:@escaping ()->()){
         let session = URLSession.shared
         
-        session.dataTask(with: URL(string:self._pokemonUrl!)!){ (data:Data?, response:URLResponse?, error:NSError?) in
+        
+        session.dataTask(with: URL(string:self._pokemonUrl!)!){ (data, response, error) in
             if let data = data{
                 do{
                     let jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments)
@@ -117,7 +118,7 @@ class Pokemon{
             }else{
                 print("error getting data")
             }
-            }.resume()
+            }
         
         
     }

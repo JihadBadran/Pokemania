@@ -61,7 +61,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     func initAudio(){
-        let file = Bundle.main.pathForResource("sound", ofType: "mp3")
+        let file = Bundle.main.path(forResource: "sound", ofType: "mp3")
         do{
             musicPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: file!))
             musicPlayer.prepareToPlay()
@@ -89,14 +89,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     func parseCSV(){
-        let path = Bundle.main.pathForResource("pokemon", ofType: "csv")!
+        let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")!
         do{
             let csv = try CSV(contentsOfURL: path)
             let rows = csv.rows
             for row in rows{
                 let pokid = Int(row["id"]!)!
                 let pokname = String(row["identifier"]!)
-                let pokemon = Pokemon(name: pokname, ID: pokid)
+                let pokemon = Pokemon(name: pokname!, ID: pokid)
                 DataService.instance.insert(pokemon: pokemon)
             }
         }catch{
@@ -157,8 +157,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         
-        
     }
+    
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -167,9 +168,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
    
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let view = segue.destinationViewController as? detailsVC{
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let view = segue.destination as? detailsVC{
             if let pokemon = sender as? Pokemon{
                 view.pokemon = pokemon
             }
