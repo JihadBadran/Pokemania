@@ -10,5 +10,6 @@ import Foundation
 
 let URL_BASE = "http://pokeapi.co"
 let URL_POKEMON = "/api/v2/pokemon/"
+let URL_DESCRIPTION = "/api/v1/description/"
 
 typealias onComplete = () -> Void

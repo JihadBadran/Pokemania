@@ -167,7 +167,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
    
-    
+   // prepare override to prepare the segue to jump in, by giving it the data it needs
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let view = segue.destination as? detailsVC{
             if let pokemon = sender as? Pokemon{
@@ -177,5 +177,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
 
 
+}
+
+
+
+extension UIViewController{
+    static func alertMessage(message:String, title:String) -> Void{
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler:nil)
+        
+        alertController.addAction(okAction)
+        
+    }
 }
 

@@ -49,7 +49,7 @@ class detailsVC: UIViewController, MKMapViewDelegate {
         loadingindecator.center = loadingView.center
         loadingindecator.startAnimating()
         
-        loadingLabel = UILabel(frame: CGRect(x: 0, y: loadingView.center.y + loadingindecator.frame.height, width: 200, height: 25))
+        loadingLabel = UILabel(frame: CGRect(x: 0, y: loadingView.center.y + loadingindecator.frame.height+10, width: 200, height: 25))
         loadingLabel.text = "LOADING..."
         loadingLabel.textColor = #colorLiteral(red: 1, green: 0.99997437, blue: 0.9999912977, alpha: 1)
         loadingLabel.textAlignment = .center
@@ -72,7 +72,6 @@ class detailsVC: UIViewController, MKMapViewDelegate {
                 self.updateUI()
                 self.loadingView.isHidden = true
             })
-            
         }
         
     }
@@ -82,7 +81,7 @@ class detailsVC: UIViewController, MKMapViewDelegate {
         typeLabel.text = "\(self.pokemon.type.capitalized)"
         heightLabel.text = "\(self.pokemon.height)"
         weightLabel.text = "\(self.pokemon.weight)"
-//        descLabel.text = "\(self.pokemon.description)"
+        descLabel.text = "\(self.pokemon.description)"
         
     }
     
