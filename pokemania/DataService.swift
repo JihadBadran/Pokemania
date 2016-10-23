@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 class DataService {
     static let instance = DataService()
     
@@ -24,6 +25,8 @@ class DataService {
     func delete(position:Int){
         self.data.remove(at: position)
     }
+    
+    
     
     
     

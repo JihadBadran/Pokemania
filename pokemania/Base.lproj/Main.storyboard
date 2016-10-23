@@ -23,17 +23,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28G-fF-Xhn">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28G-fF-Xhn">
+                                <frame key="frameInset" minY="20" width="375" height="53"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POKEMANIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yip-ZV-urC">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="LCS-86-KBi"/>
-                                            <constraint firstAttribute="height" constant="35" id="h6h-jN-xoa"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAN-wn-YCO">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="58" id="VfL-Po-f5B"/>
@@ -47,13 +39,23 @@
                                             <action selector="pauseBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eaq-uq-3Tq"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="POKEMANIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yip-ZV-urC">
+                                        <frame key="frameInset" minX="87" minY="9" width="200" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="LCS-86-KBi"/>
+                                            <constraint firstAttribute="height" constant="35" id="h6h-jN-xoa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.27138439440000001" blue="0.11506973970000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="rAN-wn-YCO" secondAttribute="trailing" constant="9" id="9Kd-Cb-koc"/>
-                                    <constraint firstAttribute="height" constant="73" id="KRv-OU-VHX"/>
-                                    <constraint firstAttribute="bottom" secondItem="Yip-ZV-urC" secondAttribute="bottom" constant="8" id="SiM-6n-m18"/>
-                                    <constraint firstAttribute="bottom" secondItem="rAN-wn-YCO" secondAttribute="bottom" constant="11" id="cxY-h9-UrU"/>
+                                    <constraint firstAttribute="height" constant="50" id="KRv-OU-VHX"/>
+                                    <constraint firstItem="rAN-wn-YCO" firstAttribute="centerY" secondItem="28G-fF-Xhn" secondAttribute="centerY" id="Z2V-U4-upE"/>
+                                    <constraint firstItem="Yip-ZV-urC" firstAttribute="centerY" secondItem="28G-fF-Xhn" secondAttribute="centerY" id="fKg-2Z-awf"/>
                                     <constraint firstItem="Yip-ZV-urC" firstAttribute="centerX" secondItem="28G-fF-Xhn" secondAttribute="centerX" id="yT2-0w-KCI"/>
                                 </constraints>
                             </view>
@@ -113,14 +115,17 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="OaB-VQ-zCG" firstAttribute="top" secondItem="Y0v-Pg-Tk1" secondAttribute="bottom" constant="10" id="AgF-7g-hDP"/>
-                            <constraint firstItem="28G-fF-Xhn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="EgU-pG-V0e"/>
+                            <constraint firstItem="28G-fF-Xhn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="EgU-pG-V0e">
+                                <variation key="heightClass=compact" constant="0.0"/>
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
                             <constraint firstItem="OaB-VQ-zCG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="OO2-xM-vJq"/>
-                            <constraint firstItem="Y0v-Pg-Tk1" firstAttribute="top" secondItem="28G-fF-Xhn" secondAttribute="bottom" id="bgQ-Li-yd5"/>
                             <constraint firstItem="Y0v-Pg-Tk1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="g5U-Ow-QNb"/>
                             <constraint firstAttribute="trailing" secondItem="Y0v-Pg-Tk1" secondAttribute="trailing" id="hJj-TK-B7g"/>
                             <constraint firstAttribute="trailing" secondItem="28G-fF-Xhn" secondAttribute="trailing" id="hmT-MH-VB4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OaB-VQ-zCG" secondAttribute="bottom" constant="10" id="js5-jo-1gG"/>
                             <constraint firstAttribute="trailing" secondItem="OaB-VQ-zCG" secondAttribute="trailing" constant="10" id="pA7-Xj-nbn"/>
+                            <constraint firstItem="Y0v-Pg-Tk1" firstAttribute="top" secondItem="28G-fF-Xhn" secondAttribute="bottom" id="yKV-sr-kfl"/>
                             <constraint firstItem="28G-fF-Xhn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yKj-dF-4sd"/>
                         </constraints>
                     </view>
@@ -133,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="137"/>
+            <point key="canvasLocation" x="127.2" y="136.28185907046478"/>
         </scene>
         <!--DetailsVC-->
         <scene sceneID="Hna-51-7sN">

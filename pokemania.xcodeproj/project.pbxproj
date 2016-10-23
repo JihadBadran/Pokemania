@@ -19,6 +19,7 @@
 		1B7D55B71D3EBF87002F2DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D55B51D3EBF87002F2DF4 /* Main.storyboard */; };
 		1B7D55B91D3EBF88002F2DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D55B81D3EBF88002F2DF4 /* Assets.xcassets */; };
 		1B7D55BC1D3EBF88002F2DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B7D55BA1D3EBF88002F2DF4 /* LaunchScreen.storyboard */; };
+		1B82CB3E1DBBF9F1003FAFC0 /* data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1B82CB3C1DBBF9F1003FAFC0 /* data.xcdatamodeld */; };
 		1BAF24E61D3FB44B003E970E /* detailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF24E51D3FB44B003E970E /* detailsVC.swift */; };
 		1BAF24E71D3FBE32003E970E /* Pokemon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B0B9E121D3EF43400022227 /* Pokemon.ttf */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		1B7D55B81D3EBF88002F2DF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B7D55BB1D3EBF88002F2DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B7D55BD1D3EBF88002F2DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B82CB3D1DBBF9F1003FAFC0 /* data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = data.xcdatamodel; sourceTree = "<group>"; };
 		1BAF24E51D3FB44B003E970E /* detailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailsVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 				1B7D55B11D3EBF87002F2DF4 /* AppDelegate.swift */,
 				1B7D55B81D3EBF88002F2DF4 /* Assets.xcassets */,
 				1B7D55BD1D3EBF88002F2DF4 /* Info.plist */,
+				1B82CB3C1DBBF9F1003FAFC0 /* data.xcdatamodeld */,
 			);
 			path = pokemania;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			files = (
 				1BAF24E61D3FB44B003E970E /* detailsVC.swift in Sources */,
 				1B0B9E021D3EDB6A00022227 /* pokemonCellVC.swift in Sources */,
+				1B82CB3E1DBBF9F1003FAFC0 /* data.xcdatamodeld in Sources */,
 				1B7D55B41D3EBF87002F2DF4 /* ViewController.swift in Sources */,
 				1B0B9E091D3EE59400022227 /* CSV.swift in Sources */,
 				1B7D55B21D3EBF87002F2DF4 /* AppDelegate.swift in Sources */,
@@ -356,7 +360,7 @@
 				CODE_SIGN_ENTITLEMENTS = pokemania/pokemania.entitlements;
 				DEVELOPMENT_TEAM = 35FLCTJNHZ;
 				INFOPLIST_FILE = pokemania/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ps.tasfyeh.pokemania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -372,7 +376,7 @@
 				CODE_SIGN_ENTITLEMENTS = pokemania/pokemania.entitlements;
 				DEVELOPMENT_TEAM = 35FLCTJNHZ;
 				INFOPLIST_FILE = pokemania/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ps.tasfyeh.pokemania;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -402,6 +406,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1B82CB3C1DBBF9F1003FAFC0 /* data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1B82CB3D1DBBF9F1003FAFC0 /* data.xcdatamodel */,
+			);
+			currentVersion = 1B82CB3D1DBBF9F1003FAFC0 /* data.xcdatamodel */;
+			path = data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1B7D55A61D3EBF85002F2DF4 /* Project object */;
 }

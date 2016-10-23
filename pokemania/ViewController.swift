@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     @IBOutlet weak var collectionView:UICollectionView!
@@ -27,10 +28,57 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         initAudio()
         
         
+        importCoreDataIntries()
+        
         
         
     }
     
+    
+    
+    /*
+    *
+    *
+    *
+    */
+    func importCoreDataIntries(){
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate?.persistentContainer.viewContext
+        
+        let fetchedData = fetchData(context!, entity:"Pokemon") as! [NSManagedObject]
+        
+        for pokemon in DataService.instance.data{
+            
+            for result in fetchedData{
+                if let name = result.value(forKey: "name") as? String{
+                    if pokemon.name == name{
+                        if let weight = result.value(forKey: "weight") as? String{
+                            pokemon.weight = weight
+                        }
+                        if let height = result.value(forKey: "height") as? String{
+                            pokemon.height = height
+                        }
+                        if let defense = result.value(forKey: "defense") as? String{
+                            pokemon.defense = defense
+                        }
+                        if let type = result.value(forKey: "type") as? String{
+                            pokemon.type = type
+                        }
+                        if let desc = result.value(forKey: "desc") as? String{
+                            pokemon.description = desc
+                        }
+                        if let attack = result.value(forKey: "attack") as? String{
+                            pokemon.attack = attack
+                        }
+                        print("\(pokemon.name) has been imported")
+                    }
+                }
+                
+            }
+
+        }
+        
+    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
@@ -173,6 +221,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if let pokemon = sender as? Pokemon{
                 view.pokemon = pokemon
             }
+        }
+    }
+    
+    
+    
+    func fetchData(_ context:NSManagedObjectContext, entity:String) -> [AnyObject]{
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        request.returnsObjectsAsFaults = false
+        
+        
+        do{
+            let results = try context.fetch(request)
+            
+            return results as [AnyObject]
+        }catch{
+            return []
         }
     }
 

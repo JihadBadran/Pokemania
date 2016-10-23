@@ -65,23 +65,34 @@ class detailsVC: UIViewController, MKMapViewDelegate {
         loadingView.isHidden = false
         map.frame = CGRect(x: 0, y: 0, width: 360, height: 300)
         
-        
-        self.pokemon.downloadPokemonDetails {
-            print("did we get here?")
-            DispatchQueue.main.async(execute: {
-                self.updateUI()
-                self.loadingView.isHidden = true
-            })
+        if self.pokemon.height == ""{
+            self.pokemon.downloadPokemonDetails {
+                print("did we get here?")
+                DispatchQueue.main.async(execute: {
+                    self.updateUI()
+                    self.loadingView.isHidden = true
+                })
+            }
+        }else{
+            self.updateUI()
+            self.loadingView.isHidden = true
         }
         
     }
     func updateUI(){
-        attackLabel.text = "\(pokemon.attack)"
+        attackLabel.text = "\(self.pokemon.attack)"
         defenseLabel.text = "\(self.pokemon.defense)"
         typeLabel.text = "\(self.pokemon.type.capitalized)"
         heightLabel.text = "\(self.pokemon.height)"
         weightLabel.text = "\(self.pokemon.weight)"
         descLabel.text = "\(self.pokemon.description)"
+        
+        print("attack \(self.pokemon.attack)")
+        print("defense \(self.pokemon.defense)")
+        print("type \(self.pokemon.type)")
+        print("height \(self.pokemon.height)")
+        print("weight \(self.pokemon.weight)")
+        print("desc \(self.pokemon.description)")
         
     }
     
